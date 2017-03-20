@@ -1,0 +1,56 @@
+<dtml-var manage_page_header>
+<dtml-var manage_tabs>
+<script type="text/javascript">
+<!-- 
+
+isSelected = false;
+
+function toggleSelect() {
+  if (isSelected == false) {
+  for (i = 0; i < document.objectItems.length; i++)
+    document.objectItems.elements[i].checked = true ;
+    isSelected = true;
+    document.objectItems.selectButton.value = "Deselect All";
+    return isSelected;
+	        }
+	  else {
+	      for (i = 0; i < document.objectItems.length; i++)
+            document.objectItems.elements[i].checked = false ;
+	          isSelected = false;
+	        document.objectItems.selectButton.value = "Select All";
+	      return isSelected;       
+    }
+}
+								
+//-->
+</script>
+ <h3>User groups</h3>
+ <dtml-if mapping_done>
+ <i>sucessful mapping <dtml-var "DateTime()"></i>
+ </dtml-if>
+<dtml-let this_rl="getParentNode().validRoles()">
+<form action="manage_map_to_local_roles"  name="objectItems" method="post">
+<table cellspacing="0" cellpadding="2" border="0">
+<dtml-in adGroups mapping>
+<tr><td style='color:<dtml-if "name in this_rl">red<dtml-else>black</dtml-if>'>
+<input type='checkbox' name='roles:list' value="&dtml-name;"> 
+<a href="groupIndex?group=&dtml-name;">&dtml-name;</a>
+<td>&dtml-description;
+</tr>
+</dtml-in>
+</table>
+<div class="form-element">
+ <input class="form-element" type="submit" name="add" value="Add to local roles" />
+ <input class="form-element" type="submit" name="delete" value="Delete from local roles" />
+ <script type="text/javascript">
+  <!-- 
+   if (document.forms[0]) {
+    document.write('<input class="form-element" type="submit" name="selectButton" value="Select All" onClick="toggleSelect(); return false">')
+   }
+   //-->
+ </script>
+</div>
+</form>
+</dtml-let>
+<dtml-var manage_page_footer>
+

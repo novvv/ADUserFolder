@@ -1,0 +1,15 @@
+HowTo install ADUF.
+=====================
+To install ADUF simple add `Active Directory User Folder` from Add menu in ZMI.
+
+
+Configure ADUF.
+=========================
+Yoy should after add change this properties of ADUF:
+1. cleanup_interval - chache interval in sec
+2. encrypt_passwords
+3. LDAPServer - URI of your AD server
+4. ContextName - base context for ldap queries
+5. bindUser - probe user with valid account in AD
+6. bindPw - credentials of porbe user
+7. encoding - UI encoding

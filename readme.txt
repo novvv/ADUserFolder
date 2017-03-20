@@ -1,7 +1,9 @@
 AD User Folder 
 -------------
 
-Active directory authentication thru LDAP  is simple plugable User Folder with cache suppor.
+Zope2 authentificator product
+
+Active directory authentication thru LDAP  is simple plugable User Folder with cache support.
 
 Based on initial work Copyright (c) 2004 Mikhail Kashkin (mailbox@xen.ru) - Gear user folder 
 
